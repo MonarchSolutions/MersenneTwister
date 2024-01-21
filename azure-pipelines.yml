@@ -21,8 +21,6 @@ steps:
   inputs:
     command: 'restore'
     projects: '**/MersenneTwister.csproj'
-    feedsToUse: 'select'
-    vstsFeed: '4b940103-2394-4e3d-9b45-3823b4b58881'
 
 - task: DotNetCoreCLI@2
   inputs:
