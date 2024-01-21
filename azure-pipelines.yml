@@ -40,6 +40,11 @@ steps:
     nuGetFeedType: 'internal'
     publishVstsFeed: '4b940103-2394-4e3d-9b45-3823b4b58881'
     
+
+- task: NuGetAuthenticate@1
+  inputs:
+    nuGetServiceConnections: 'MonarchMyGet'
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'push'
