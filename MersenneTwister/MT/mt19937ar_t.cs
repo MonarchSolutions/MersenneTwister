@@ -111,7 +111,7 @@ namespace MersenneTwister.MT
             mt[0] = 0x80000000U; /* MSB is 1; assuring non-zero initial array */
         }
 
-        private static readonly uint[] mag01 = new[] { 0x0U, MATRIX_A };
+        private static readonly uint[] mag01 = [0x0U, MATRIX_A];
 
         /* generates a random number on [0,0xffffffff]-interval */
         public uint genrand_int32()

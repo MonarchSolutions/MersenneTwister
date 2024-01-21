@@ -6,27 +6,27 @@ namespace MersenneTwister
 {
     public static class Randoms
     {
-        private static readonly ThreadLocal<Random> wellBalanced = new ThreadLocal<Random>(() => Create(RandomType.WellBalanced), false);
-        private static readonly ThreadLocal<Random> fastestInt32 = new ThreadLocal<Random>(() => Create(RandomType.FastestInt32), false);
-        private static readonly ThreadLocal<Random> fastestDouble = new ThreadLocal<Random>(() => Create(RandomType.FastestDouble), false);
+        private static readonly ThreadLocal<Random> wellBalanced = new(() => Create(RandomType.WellBalanced), false);
+        private static readonly ThreadLocal<Random> fastestInt32 = new(() => Create(RandomType.FastestInt32), false);
+        private static readonly ThreadLocal<Random> fastestDouble = new(() => Create(RandomType.FastestDouble), false);
 
-        private static readonly Lazy<Random> shared = new Lazy<Random>(() => Create(RandomType.WellBalanced), LazyThreadSafetyMode.ExecutionAndPublication);
+        private static readonly Lazy<Random> shared = new(() => Create(RandomType.WellBalanced), LazyThreadSafetyMode.ExecutionAndPublication);
 
-        public static Random WellBalanced {
+        public static Random? WellBalanced {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get {
                 return wellBalanced.Value;
             }
         }
 
-        public static Random FastestInt32 {
+        public static Random? FastestInt32 {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get {
                 return fastestInt32.Value;
             }
         }
 
-        public static Random FastestDouble {
+        public static Random? FastestDouble {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get {
                 return fastestDouble.Value;
@@ -35,30 +35,22 @@ namespace MersenneTwister
 
         public static Random Create(RandomType type = RandomType.WellBalanced)
         {
-            switch (type) {
-            case RandomType.WellBalanced:
-                return DsfmtRandom.Create();
-            case RandomType.FastestInt32:
-                return MT64Random.Create();
-            case RandomType.FastestDouble:
-                return DsfmtRandom.Create();
-            default:
-                throw new ArgumentException();
-            }
+            return type switch {
+                RandomType.WellBalanced => DsfmtRandom.Create(),
+                RandomType.FastestInt32 => MT64Random.Create(),
+                RandomType.FastestDouble => DsfmtRandom.Create(),
+                _ => throw new ArgumentException()
+            };
         }
 
         public static Random Create(int seed, RandomType type = RandomType.WellBalanced)
         {
-            switch (type) {
-            case RandomType.WellBalanced:
-                return DsfmtRandom.Create(seed);
-            case RandomType.FastestInt32:
-                return MT64Random.Create(seed);
-            case RandomType.FastestDouble:
-                return DsfmtRandom.Create(seed);
-            default:
-                throw new ArgumentException();
-            }
+            return type switch {
+                RandomType.WellBalanced => DsfmtRandom.Create(seed),
+                RandomType.FastestInt32 => MT64Random.Create(seed),
+                RandomType.FastestDouble => DsfmtRandom.Create(seed),
+                _ => throw new ArgumentException()
+            };
         }
 
         public static int Next()

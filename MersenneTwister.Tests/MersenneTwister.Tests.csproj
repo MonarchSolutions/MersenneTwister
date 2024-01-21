@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MersenneTwister.Tests</RootNamespace>
     <AssemblyName>MersenneTwister.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -138,12 +138,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MersenneTwister\MersenneTwister.csproj">
-      <Project>{fbf197ea-e04c-4e0b-99fb-bbb60a4bdb83}</Project>
+      <Project>{1e0b9b8d-7bbc-4d66-a38d-fa79aa108e46}</Project>
       <Name>MersenneTwister</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

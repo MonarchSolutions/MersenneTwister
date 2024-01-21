@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MersenneTwister.Benchmark</RootNamespace>
     <AssemblyName>MersenneTwister.Benchmark</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -58,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MersenneTwister\MersenneTwister.csproj">
-      <Project>{fbf197ea-e04c-4e0b-99fb-bbb60a4bdb83}</Project>
+      <Project>{1e0b9b8d-7bbc-4d66-a38d-fa79aa108e46}</Project>
       <Name>MersenneTwister</Name>
     </ProjectReference>
   </ItemGroup>
